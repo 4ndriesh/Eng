@@ -1,19 +1,21 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Local Library Home</h1>
+<h1>Здесь какая-то хрень</h1>
 
-  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+  <p>Добро пожаловать <em>на хрень</em>, Вы зашли на какую-то хрень</p>
 
-<h2>Dynamic content</h2>
+<h2>Смотрите на всю эту хрень</h2>
 
-  <p>The library has the following record counts:</p>
+  <p>Моя любимая хрень</p>
   <ul>
-    <li><strong>Books:</strong> {{ num_books }}</li>
-    <li><strong>Copies:</strong> {{ num_instances }}</li>
-    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>книги:</strong> {{ num_books }}</li>
+    <li><strong>копии:</strong> {{ num_instances }}</li>
+    <li><strong>доступная хрень:</strong> {{ num_instances_available }}</li>
+    <li><strong>авторы:</strong> {{ num_authors }}</li>
   </ul>
-    <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+    <p>Вы дохрена посейщали эту хрень {{ num_visits }}{% if num_visits == 1 %} раз{% else %} раз{% endif %}.</p>
 
 {% endblock %}
+
+
