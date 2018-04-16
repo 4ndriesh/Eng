@@ -4,16 +4,36 @@
     <h1>Список хрени</h1>
 
     {% if book_list %}
-    <ul>
+        <ul>
 
-      {% for book in book_list %}
-      <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
-      </li>
-      {% endfor %}
+            {% for book in book_list %}
+                <li>
+                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }})
+                </li>
+            {% endfor %}
 
-    </ul>
+        </ul>
     {% else %}
-      <p>Нет хрени</p>
-    {% endif %}       
+        <p>Нет хрени</p>
+    {% endif %}
+{% endblock %}
+
+
+{% block pagination %}
+
+    {% if is_paginated %}
+        <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Назад</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Далее</a>
+              {% endif %}
+          </span>
+        </div>
+    {% endif %}
 {% endblock %}

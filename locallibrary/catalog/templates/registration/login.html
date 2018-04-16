@@ -1,40 +1,85 @@
-{% extends "base_generic.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-{% block content %}
+    <title>Signin Template for Bootstrap</title>
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ie10-viewport-bug-workaround.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ie-emulation-modes-warning.js' %}">
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-    {{ form.as_p }}
+</head>
 
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
+<body>
 
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
 
+<div class="container">
+
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</div> <!-- /container -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../static/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+{#            #}
+{#            {% if form.errors %}#}
+{#                <p>Your username and password didn't match. Please try again.</p>#}
+{#            {% endif %}#}
+{#            #}
+{#            {% if next %}#}
+{#                {% if user.is_authenticated %}#}
+{#                    <p>Your account doesn't have access to this page. To proceed,#}
+{#                        please login with an account that has access.</p>#}
+{#                {% else %}#}
+{#                    <p>Please login to see this page.</p>#}
+{#                {% endif %}#}
+{#            {% endif %}#}
+{#            #}
+{#            <form method="post" action="{% url 'login' %}">#}
+{#                {% csrf_token %}#}
+{#    {{ form.as_p }}#}
+{#            #}
+{#                <div>#}
+{#                    <td>{{ form.username.label_tag }}</td>#}
+{#                    <td>{{ form.username }}</td>#}
+{#                </div>#}
+{#                <div>#}
+{#                    <td>{{ form.password.label_tag }}</td>#}
+{#                    <td>{{ form.password }}</td>#}
+{#                </div>#}
+{#            #}
+{#                <div>#}
+{#                    <input type="submit" value="login"/>#}
+{#                    <input type="hidden" name="next" value="{{ next }}"/>#}
+{#                </div>#}
+{#            </form>#}
+{#            #}
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+{#            <p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
 
-{% endblock %}
+</body>
+</html>
