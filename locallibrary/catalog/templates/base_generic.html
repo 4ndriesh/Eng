@@ -14,72 +14,108 @@
     <link rel="stylesheet" href="{% static 'assets/css/ie-emulation-modes-warning.js' %}">
     <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">#}
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+
 </head>
 
 <body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
 
-<div class="navbar-wrapper">
+{#    <div class="container-fluid">#}
+{##}
+{#        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"#}
+{#                aria-expanded="false" aria-controls="navbar">#}
+{#            <span class="sr-only">Toggle navigation</span>#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#        </button>#}
+{#        <a class="navbar-brand" href="#">Project name</a>#}
+{#    </div>#}
     <div class="container">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'index' %}">На хату</a></li>
+                <li><a href="{% url 'books' %}">Вся хрень</a></li>
+                <li><a href="">Вся хрень</a></li>
+                <li><a href="">Все авторы</a></li>
 
-        <nav class="navbar navbar-inverse navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{% url 'index' %}">На хату</a></li>
-                            <li><a href="{% url 'books' %}">Вся хрень</a></li>
-                            <li><a href="">Вся хрень</a></li>
-                            <li><a href="">Все авторы</a></li>
-                            {% if user.is_authenticated %}
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-haspopup="true" aria-expanded="false">{{ user.get_username }} <span
-                                            class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Профиль</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Выход</a></li>
-                                    </ul>
-                                </li>
-                            {% else %}
-                                <li><a href="{% url 'login' %}?next={{ request.path }}">Вход</a></li>
-                            {% endif %}
-                            {% if next %}
-                                {% if user.is_authenticated %}
-                                    <p>Your account doesn't have access to this page. To proceed,
-                                        please login with an account that has access.</p>
-                                {% else %}
-                                    <p>Please login to see this page.</p>
-                                {% endif %}
-                            {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
 
 
+                {% if user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"><span
+                                class="glyphicon glyphicon-user"></span> {{ user.get_username }} </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Профиль</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'logout' %}?next={{ request.path }}">Выход</a></li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}?next={{ request.path }}"><span
+                            class="glyphicon glyphicon-log-in"></span>
+                        Вход</a></li>
+                {% endif %}
+                {% if next %}
+                    {% if user.is_authenticated %}
+                        <p>Your account doesn't have access to this page. To proceed,
+                            please login with an account that has access.</p>
+                    {% else %}
+                        <p>Please login to see this page.</p>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
 
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="fa fa-google-plus pr-1"></span>
+                        Google +
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="fa fa-twitter pr-1"></span>
+                        Twitter
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="fa fa-facebook pr-1"></span>
+                        Facebook
+                    </a>
+                </li>
+
+        </div>
     </div>
 </div>
+
 
 {% block carusel %} {% endblock %}
 {% block heading %} {% endblock %}
 
 
 
-{% block content %} {% endblock %}
-{% block pagination %}{% endblock %}
-{% block login %} {% endblock %}
+{#{% block content %} {% endblock %}#}
+{#{% block pagination %}{% endblock %}#}
+{#{% block login %} {% endblock %}#}
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
