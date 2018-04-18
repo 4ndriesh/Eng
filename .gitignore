@@ -106,18 +106,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-Будет удалено .idea/Eng.iml
-Будет удалено .idea/inspectionProfiles/
-Будет удалено .idea/misc.xml
-Будет удалено .idea/modules.xml
-Будет удалено .idea/workspace.xml
-Будет удалено locallibrary/catalog/__init__.py
-Будет удалено locallibrary/catalog/admin.py
-Будет удалено locallibrary/catalog/apps.py
-Будет удалено locallibrary/catalog/migrations/
-Будет удалено locallibrary/catalog/models.py
-Будет удалено locallibrary/catalog/tests.py
-Будет удалено locallibrary/catalog/views.py
-Будет удалено locallibrary/locallibrary/
-Будет удалено locallibrary/manage.py
