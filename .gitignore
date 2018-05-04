@@ -135,3 +135,4 @@ venv.bak/
 Будет удалено locallibrary/catalog/templates/index4.html
 Будет удалено locallibrary/catalog/templates/index5.html
 Будет удалено locallibrary/catalog/templates/index6.html
+!/locallibrary/locallibrary/local_settings.py
